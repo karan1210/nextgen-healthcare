@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://formspree.io; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <title>Nextgen Healthcare - Innovative Pharmaceutical Solutions | Dental, Surgical & Gynecological Products</title>
     <meta name="description" content="Nextgen Healthcare pioneers advanced pharmaceutical formulations in India since 2010. Offering innovative dental care, surgical, gynecological, and urology products with 40+ portfolio across multiple therapeutic segments.">
+    <meta name="keywords" content="pharmaceutical company India, dental care products, surgical care, gynecological products, urology solutions, APLY Gel, AUGMEXIN, S-OFF oral rinse, MESACLIN Forte, healthcare innovation, Nextgen Healthcare">
+    <meta name="author" content="Nextgen Healthcare">
     
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     
@@ -16,16 +22,29 @@
         :root {
             --primary: #0B3D3C;
             --primary-dark: #062826;
+            --primary-light: #0F5654;
             --accent: #2D9596;
+            --accent-light: #54B8BA;
             --gold: #C9A961;
+            --teal: #17A2B8;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
             --white: #ffffff;
             --text-dark: #2d3748;
             --text-light: #718096;
             --gradient-1: linear-gradient(135deg, #0B3D3C 0%, #0F5654 100%);
+            --gradient-2: linear-gradient(135deg, #2D9596 0%, #54B8BA 100%);
+            --gradient-3: linear-gradient(135deg, #0B3D3C 0%, #2D9596 100%);
+            --shadow-sm: 0 2px 8px rgba(11, 61, 60, 0.08);
             --shadow-md: 0 4px 20px rgba(11, 61, 60, 0.12);
+            --shadow-lg: 0 10px 40px rgba(11, 61, 60, 0.15);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'DM Sans', sans-serif;
@@ -33,9 +52,20 @@
             line-height: 1.6;
             overflow-x: hidden;
             background: var(--white);
+            text-align: justify;
         }
 
-        /* --- Navigation & Mobile Menu Fixes --- */
+        p {
+            text-align: justify;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -43,7 +73,7 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
         }
 
         .nav-container {
@@ -55,7 +85,10 @@
             align-items: center;
         }
 
-        .logo-img { height: 60px; width: auto; }
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
 
         .nav-links {
             display: flex;
@@ -65,147 +98,206 @@
         }
 
         .nav-links a {
-            text-decoration: none;
             color: var(--text-dark);
+            text-decoration: none;
             font-weight: 500;
-            transition: 0.3s;
+            transition: color 0.3s ease;
         }
-
-        .nav-links a:hover { color: var(--accent); }
 
         .cta-button {
             background: var(--gradient-1);
-            color: white !important;
+            color: var(--white) !important;
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
             font-weight: 600;
         }
 
-        /* Hamburger Icon for Mobile */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary);
-            transition: 0.3s;
-        }
-
-        /* --- Hero Section --- */
+        /* Hero Section */
         .hero {
-            padding-top: 120px;
-            min-height: 85vh;
+            margin-top: 80px;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, rgba(11, 61, 60, 0.03) 0%, rgba(45, 149, 150, 0.03) 100%);
             text-align: center;
         }
 
-        .hero-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            width: 100%;
+        }
 
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--primary); margin-bottom: 1.5rem; font-family: 'Libre Baskerville', serif; }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
 
-        .hero p { max-width: 800px; margin: 0 auto 2.5rem; color: var(--text-light); font-size: 1.125rem; }
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
 
         .btn-primary {
             background: var(--gradient-1);
-            color: white;
+            color: var(--white);
             padding: 1rem 2.5rem;
             border-radius: 12px;
             text-decoration: none;
-            display: inline-block;
             font-weight: 600;
         }
 
-        /* --- LEFT ALIGNMENT for Complete Product Range --- */
-        #products .section-header {
-            text-align: left; /* Aligns header text to the left */
-            max-width: 1200px;
-            margin: 0 auto 3rem auto;
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            border: 2px solid var(--primary);
+            font-weight: 600;
         }
 
-        #products .section-title { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; font-family: 'Libre Baskerville', serif; }
-
-        #products .section-description { margin-left: 0; text-align: left; max-width: 800px; }
-
-        /* --- Grid Layouts (Responsive) --- */
-        .pioneer-grid, .categories-grid, .stats-grid {
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            margin-top: 3rem;
-        }
-
-        .pioneer-card, .category-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-md);
-            border-top: 5px solid var(--accent);
-        }
-
-        /* --- Contact Section --- */
-        .contact-section { padding: 6rem 2rem; background: var(--primary); color: white; }
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 4rem;
-            max-width: 1200px;
+        /* Product Categories */
+        .categories-section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 2px solid transparent;
+            text-align: left;
+        }
+
+        .category-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        .category-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        .category-card p {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .product-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .product-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(11, 61, 60, 0.1);
+            color: var(--text-dark);
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .product-list li::before {
+            content: '→';
+            color: var(--accent);
+            margin-right: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--gradient-3);
+            color: var(--white);
+            padding: 6rem 2rem;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
         .contact-form {
-            background: white;
+            background: var(--white);
             padding: 3rem;
             border-radius: 20px;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
             color: var(--text-dark);
         }
 
         .form-group { margin-bottom: 1.5rem; }
         .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
         .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 0.875rem;
-            border: 2px solid #eee;
-            border-radius: 10px;
-            font-size: 1rem;
+            width: 100%; padding: 0.875rem; border: 2px solid #eee; border-radius: 10px;
         }
 
         .submit-btn {
             width: 100%;
             background: var(--gradient-1);
-            color: white;
+            color: var(--white);
             padding: 1rem;
             border: none;
             border-radius: 12px;
-            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
         }
 
-        /* --- Mobile Responsive Rules --- */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        /* --- MOBILE RESPONSIVENESS FIXES --- */
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .contact-container { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
         @media (max-width: 768px) {
-            .menu-toggle { display: flex; }
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: -100%;
-                flex-direction: column;
-                background: white;
-                width: 100%;
-                padding: 2rem;
-                transition: 0.4s;
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-            }
-            .nav-links.active { left: 0; }
-            #products .section-header { text-align: center; } /* Center on tiny screens for balance */
-            #products .section-description { text-align: center; }
+            .nav-container { flex-direction: column; padding: 1rem; }
+            .nav-links { margin-top: 1rem; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .nav-links li { font-size: 0.9rem; }
+            
+            .hero { margin-top: 140px; } /* Space for wrapped nav */
+            .hero-content h1 { font-size: 2rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-secondary { width: 100%; max-width: 300px; }
+
+            .categories-section { padding: 3rem 1rem; }
+            .category-card { padding: 1.5rem; }
+            
+            .contact-section { padding: 3rem 1rem; }
+            .contact-form { padding: 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-img { height: 45px; }
+            .hero-content h1 { font-size: 1.75rem; }
+            .product-list li { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -213,103 +305,122 @@
 
     <nav>
         <div class="nav-container">
-            <div class="logo-container">
-                <img src="logo.png" alt="Nextgen Healthcare" class="logo-img">
-            </div>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="nav-list">
+            <img src="logo.png" alt="Nextgen Healthcare" class="logo-img">
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#innovations">Innovative Solutions</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#innovations">Solutions</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#contact" class="cta-button">Contact Us</a></li>
             </ul>
         </div>
     </nav>
 
-    <main>
+    <main id="main-content">
         <section class="hero" id="home">
             <div class="hero-container">
-                <h1>Empowering Healthcare Through Innovation</h1>
-                <p>Nextgen Healthcare pioneers advanced pharmaceutical formulations designed to enhance patient outcomes since 2010.</p>
-                <a href="#products" class="btn-primary">Explore Our Solutions</a>
+                <div class="hero-content">
+                    <h1>Empowering Healthcare Through Innovation</h1>
+                    <p>Nextgen Healthcare pioneers advanced pharmaceutical formulations designed to enhance patient outcomes since 2010.</p>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn-primary">View Products</a>
+                    <a href="#contact" class="btn-secondary">Contact Sales</a>
+                </div>
             </div>
         </section>
 
-        <section id="products" style="padding: 6rem 2rem; max-width: 1400px; margin: 0 auto;">
-            <div class="section-header">
-                <p style="color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Our Portfolio</p>
-                <h2 class="section-title">Complete Product Range</h2>
-                <p class="section-description">Comprehensive pharmaceutical solutions designed to meet diverse clinical needs across multiple therapeutic segments and patient populations.</p>
+        <section id="products" class="categories-section">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.5rem; color: var(--primary);">Complete Product Range</h2>
             </div>
+
             <div class="categories-grid">
                 <div class="category-card">
-                    <h3>Dental Care</h3>
-                    <p>Proprietary combinations like APLY Gel and S-OFF Oral Rinse for superior efficacy.</p>
+                    <h3>Dental Care Solutions</h3>
+                    <p>Advanced oral health therapeutics</p>
+                    <ul class="product-list">
+                        <li>APLY Gel (Ornidazole + Chlorhexidine)</li>
+                        <li>AUGMEXIN-M Forte Gel</li>
+                        <li>S-OFF NM Toothpaste (NovaMin)</li>
+                        <li>S-OFF Oral Rinse</li>
+                        <li>AUGDINE M/W System</li>
+                        <li>Benzydamine HCl 0.15% Rinse</li>
+                        <li>IGP Gum Paint</li>
+                        <li>ORO FAST Mouthwash</li>
+                    </ul>
                 </div>
+
                 <div class="category-card">
                     <h3>Gynecology</h3>
-                    <p>Sophisticated formulations like MESACLIN Forte for comprehensive infection management.</p>
+                    <p>Women's health innovations</p>
+                    <ul class="product-list">
+                        <li>MESACLIN Forte (Triple Action)</li>
+                        <li>AUGMEXIN-P Ointment</li>
+                        <li>Mega Wash (Lactic Acid)</li>
+                        <li>Cioca-D3 (Coral Calcium)</li>
+                        <li>Calcium + Vitamin D3</li>
+                    </ul>
                 </div>
+
                 <div class="category-card">
                     <h3>Surgical Care</h3>
-                    <p>Advanced wound care solutions including AUGMEXIN-P Surgical Ointment.</p>
+                    <p>Advanced wound management</p>
+                    <ul class="product-list">
+                        <li>AUGMEXIN-P Ointment</li>
+                        <li>HY-KUL Cream (Multi-Action)</li>
+                        <li>HY-KUL Tablets</li>
+                        <li>HY-KUL Suspension</li>
+                        <li>HYKUL-LS (Lactulose)</li>
+                        <li>Sultamicillin Tosylate 375mg</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3>Urology</h3>
+                    <p>Urinary health solutions</p>
+                    <ul class="product-list">
+                        <li>URICURE (Ayurvedic Formula)</li>
+                        <li>URICURE-M (K-Citrate + Mg)</li>
+                        <li>Potassium Citrate Formulations</li>
+                        <li>Enhanced Vitamin B6 Products</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section class="contact-section" id="contact">
+        <section id="contact" class="contact-section">
             <div class="contact-container">
-                <div class="contact-info">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-family: 'Libre Baskerville', serif;">Send us a Message</h2>
-                    <p style="margin-bottom: 2rem; opacity: 0.9;">We are here to assist with any pharmaceutical inquiries or partnership opportunities.</p>
-                    <p><strong>Email:</strong> sales@nextgenhealthcare.in</p>
+                <div>
+                    <h2>Get In Touch</h2>
+                    <p style="color: white; margin-top: 1rem;">Contact us for dealership inquiries or product information.</p>
                 </div>
-                
-                <form class="contact-form" action="https://formspree.io/f/xyzkpvqv" method="POST">
-                    <div class="form-group">
-                        <label>Your Name</label>
-                        <input type="text" name="name" required placeholder="Enter your full name">
-                    </div>
-                    <div class="form-group">
-                        <label>Your Email</label>
-                        <input type="email" name="_replyto" required placeholder="Enter your email">
-                    </div>
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea name="message" rows="5" required placeholder="How can we help you?"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+                <div class="contact-form">
+                    <h3>Send an Inquiry</h3>
+                    <form action="https://formspree.io/f/xyvberpd" method="POST">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" name="_replyto" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea name="message" rows="4" required></textarea>
+                        </div>
+                        <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
+                        <button type="submit" class="submit-btn">Submit Request</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
-    <script>
-        // Mobile Menu Toggle Logic
-        const menuToggle = document.getElementById('mobile-menu');
-        const navList = document.getElementById('nav-list');
+    <footer>
+        <p>&copy; 2024 Nextgen Healthcare. All Rights Reserved.</p>
+        <p>Email: sales@nextgenhealthcare.in</p>
+    </footer>
 
-        menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked (useful for mobile)
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navList.classList.remove('active');
-            });
-        });
-
-        // Prevent right-click on images as requested
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('contextmenu', e => e.preventDefault());
-            img.setAttribute('loading', 'lazy');
-        });
-    </script>
 </body>
 </html>
