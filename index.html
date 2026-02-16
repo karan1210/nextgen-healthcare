@@ -7,8 +7,8 @@
     
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://formspree.io; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io;">
     
-    <title>Nextgen Healthcare - Innovative Pharmaceutical Solutions</title>
-    <meta name="description" content="Nextgen Healthcare pioneers advanced pharmaceutical formulations in India since 2010. Offering innovative dental care, surgical, and gynecological products.">
+    <title>Nextgen Healthcare - Innovative Pharmaceutical Solutions | Dental, Surgical & Gynecological Products</title>
+    <meta name="description" content="Nextgen Healthcare pioneers advanced pharmaceutical formulations in India since 2010. Offering innovative dental care, surgical, gynecological, and urology products with 40+ portfolio across multiple therapeutic segments.">
     
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     
@@ -21,8 +21,8 @@
             --white: #ffffff;
             --text-dark: #2d3748;
             --text-light: #718096;
-            --shadow-md: 0 4px 20px rgba(11, 61, 60, 0.12);
             --gradient-1: linear-gradient(135deg, #0B3D3C 0%, #0F5654 100%);
+            --shadow-md: 0 4px 20px rgba(11, 61, 60, 0.12);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,9 +32,10 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            background: var(--white);
         }
 
-        /* Navigation & Mobile Menu */
+        /* --- Navigation & Mobile Menu Fixes --- */
         nav {
             position: fixed;
             top: 0;
@@ -54,11 +55,11 @@
             align-items: center;
         }
 
-        .logo-img { height: 50px; width: auto; }
+        .logo-img { height: 60px; width: auto; }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
             align-items: center;
         }
@@ -72,7 +73,15 @@
 
         .nav-links a:hover { color: var(--accent); }
 
-        /* Hamburger Icon */
+        .cta-button {
+            background: var(--gradient-1);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* Hamburger Icon for Mobile */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -87,96 +96,100 @@
             transition: 0.3s;
         }
 
-        /* Hero Section */
+        /* --- Hero Section --- */
         .hero {
             padding-top: 120px;
-            min-height: 80vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(11, 61, 60, 0.02) 0%, rgba(45, 149, 150, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(11, 61, 60, 0.03) 0%, rgba(45, 149, 150, 0.03) 100%);
             text-align: center;
         }
 
         .hero-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); color: var(--primary); margin-bottom: 1rem; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--primary); margin-bottom: 1.5rem; font-family: 'Libre Baskerville', serif; }
 
-        .hero p { max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem; }
+        .hero p { max-width: 800px; margin: 0 auto 2.5rem; color: var(--text-light); font-size: 1.125rem; }
 
         .btn-primary {
             background: var(--gradient-1);
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
             text-decoration: none;
             display: inline-block;
             font-weight: 600;
         }
 
-        /* Grid Layouts - Fully Responsive */
-        .stats-grid, .pioneer-grid, .categories-grid {
+        /* --- LEFT ALIGNMENT for Complete Product Range --- */
+        #products .section-header {
+            text-align: left; /* Aligns header text to the left */
+            max-width: 1200px;
+            margin: 0 auto 3rem auto;
+        }
+
+        #products .section-title { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; font-family: 'Libre Baskerville', serif; }
+
+        #products .section-description { margin-left: 0; text-align: left; max-width: 800px; }
+
+        /* --- Grid Layouts (Responsive) --- */
+        .pioneer-grid, .categories-grid, .stats-grid {
             display: grid;
             gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             margin-top: 3rem;
         }
 
-        /* Left Align Complete Product Range Section */
-        #products .section-header {
-            text-align: left; /* User request: align left */
-            max-width: 1000px;
-            margin-bottom: 3rem;
-        }
-
-        #products .section-title { font-size: 2.5rem; color: var(--primary); }
-
-        .category-card {
+        .pioneer-card, .category-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 2.5rem;
+            border-radius: 20px;
             box-shadow: var(--shadow-md);
-            border-top: 4px solid var(--accent);
+            border-top: 5px solid var(--accent);
         }
 
-        /* Form Design */
-        .contact-section { padding: 5rem 2rem; background: #f4f7f7; }
+        /* --- Contact Section --- */
+        .contact-section { padding: 6rem 2rem; background: var(--primary); color: white; }
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 4rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .contact-form {
             background: white;
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: 20px;
             box-shadow: var(--shadow-md);
+            color: var(--text-dark);
         }
 
-        .form-group { margin-bottom: 1.2rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            padding: 0.875rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
             font-size: 1rem;
         }
 
         .submit-btn {
             width: 100%;
-            background: var(--primary);
+            background: var(--gradient-1);
             color: white;
             padding: 1rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: 0.3s;
         }
 
-        /* Responsive Breakpoints */
+        /* --- Mobile Responsive Rules --- */
         @media (max-width: 768px) {
             .menu-toggle { display: flex; }
             .nav-links {
@@ -191,8 +204,8 @@
                 box-shadow: 0 10px 15px rgba(0,0,0,0.1);
             }
             .nav-links.active { left: 0; }
-            .hero { padding-top: 100px; }
-            #products .section-header { text-align: center; } /* Center on very small screens for better balance */
+            #products .section-header { text-align: center; } /* Center on tiny screens for balance */
+            #products .section-description { text-align: center; }
         }
     </style>
 </head>
@@ -210,9 +223,10 @@
             </div>
             <ul class="nav-links" id="nav-list">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#innovations">Innovations</a></li>
+                <li><a href="#innovations">Innovative Solutions</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#products">Products</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="cta-button">Contact Us</a></li>
             </ul>
         </div>
     </nav>
@@ -222,15 +236,15 @@
             <div class="hero-container">
                 <h1>Empowering Healthcare Through Innovation</h1>
                 <p>Nextgen Healthcare pioneers advanced pharmaceutical formulations designed to enhance patient outcomes since 2010.</p>
-                <a href="#products" class="btn-primary">View Product Range</a>
+                <a href="#products" class="btn-primary">Explore Our Solutions</a>
             </div>
         </section>
 
-        <section id="products" style="padding: 5rem 2rem; max-width: 1400px; margin: 0 auto;">
+        <section id="products" style="padding: 6rem 2rem; max-width: 1400px; margin: 0 auto;">
             <div class="section-header">
-                <p style="color: var(--accent); font-weight: bold; text-transform: uppercase;">Our Portfolio</p>
+                <p style="color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Our Portfolio</p>
                 <h2 class="section-title">Complete Product Range</h2>
-                <p style="color: var(--text-light); margin-top: 1rem;">Comprehensive pharmaceutical solutions designed to meet diverse clinical needs across multiple therapeutic segments.</p>
+                <p class="section-description">Comprehensive pharmaceutical solutions designed to meet diverse clinical needs across multiple therapeutic segments and patient populations.</p>
             </div>
             <div class="categories-grid">
                 <div class="category-card">
@@ -250,24 +264,24 @@
 
         <section class="contact-section" id="contact">
             <div class="contact-container">
-                <div>
-                    <h2 style="color: var(--primary); font-size: 2.5rem;">Send us a Message</h2>
-                    <p style="margin: 1rem 0;">We are here to assist with any pharmaceutical inquiries or partnership opportunities.</p>
+                <div class="contact-info">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-family: 'Libre Baskerville', serif;">Send us a Message</h2>
+                    <p style="margin-bottom: 2rem; opacity: 0.9;">We are here to assist with any pharmaceutical inquiries or partnership opportunities.</p>
                     <p><strong>Email:</strong> sales@nextgenhealthcare.in</p>
                 </div>
                 
                 <form class="contact-form" action="https://formspree.io/f/xyzkpvqv" method="POST">
                     <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" name="name" placeholder="Enter your name" required>
+                        <label>Your Name</label>
+                        <input type="text" name="name" required placeholder="Enter your full name">
                     </div>
                     <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" name="_replyto" placeholder="Enter your email" required>
+                        <label>Your Email</label>
+                        <input type="email" name="_replyto" required placeholder="Enter your email">
                     </div>
                     <div class="form-group">
                         <label>Message</label>
-                        <textarea name="message" rows="5" placeholder="How can we help you?" required></textarea>
+                        <textarea name="message" rows="5" required placeholder="How can we help you?"></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
@@ -276,33 +290,25 @@
     </main>
 
     <script>
-        // Mobile Menu Toggle
+        // Mobile Menu Toggle Logic
         const menuToggle = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
 
         menuToggle.addEventListener('click', () => {
             navList.classList.toggle('active');
-            // Animate hamburger to X
-            menuToggle.classList.toggle('open');
         });
 
-        // Close menu when a link is clicked
+        // Close menu when a link is clicked (useful for mobile)
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navList.classList.remove('active');
             });
         });
 
-        // Lazy Load Images
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('img').forEach(img => {
-                img.setAttribute('loading', 'lazy');
-            });
-        });
-
-        // Prevent Right Click on images
+        // Prevent right-click on images as requested
         document.querySelectorAll('img').forEach(img => {
             img.addEventListener('contextmenu', e => e.preventDefault());
+            img.setAttribute('loading', 'lazy');
         });
     </script>
 </body>
