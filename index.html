@@ -52,9 +52,12 @@
             line-height: 1.6;
             overflow-x: hidden;
             background: var(--white);
+            text-align: justify;
         }
 
-        p { text-align: justify; }
+        p {
+            text-align: justify;
+        }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Libre Baskerville', serif;
@@ -62,7 +65,7 @@
             line-height: 1.2;
         }
 
-        /* --- NAVIGATION --- */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -82,7 +85,10 @@
             align-items: center;
         }
 
-        .logo-img { height: 60px; width: auto; }
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
 
         .nav-links {
             display: flex;
@@ -106,24 +112,24 @@
             font-weight: 600;
         }
 
-        /* --- HERO SECTION --- */
+        /* Hero Section */
         .hero {
             margin-top: 80px;
             min-height: 90vh;
             display: flex;
             align-items: center;
-            justify-content: center;
             background: linear-gradient(135deg, rgba(11, 61, 60, 0.03) 0%, rgba(45, 149, 150, 0.03) 100%);
             text-align: center;
         }
 
         .hero-container {
-            max-width: 900px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 4rem 2rem;
+            width: 100%;
         }
 
-        .hero-container h1 {
+        .hero-content h1 {
             font-size: 3.5rem;
             color: var(--primary);
             margin-bottom: 1.5rem;
@@ -133,7 +139,7 @@
             display: flex;
             gap: 1.5rem;
             justify-content: center;
-            margin-top: 2.5rem;
+            margin-top: 2rem;
         }
 
         .btn-primary {
@@ -155,7 +161,7 @@
             font-weight: 600;
         }
 
-        /* --- PRODUCTS --- */
+        /* Product Categories (UPDATED ALIGNMENT) */
         .categories-section {
             padding: 6rem 2rem;
             max-width: 1400px;
@@ -175,23 +181,40 @@
             padding: 2rem;
             box-shadow: var(--shadow-md);
             border: 2px solid transparent;
-            transition: all 0.3s ease;
+            text-align: left; /* Changed to Left Align */
         }
 
         .category-card:hover {
             border-color: var(--accent);
             transform: translateY(-5px);
+            transition: all 0.3s ease;
         }
 
-        .category-card h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .category-card p { color: var(--accent); font-weight: 600; margin-bottom: 1.5rem; text-align: left;}
+        .category-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-align: left; /* Explicitly Left Align */
+        }
 
-        .product-list { list-style: none; }
+        .category-card p {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: left; /* Changed from Justify to Left */
+        }
+
+        .product-list {
+            list-style: none;
+            text-align: left; /* Ensure list container is left aligned */
+        }
+
         .product-list li {
             padding: 0.6rem 0;
             border-bottom: 1px solid rgba(11, 61, 60, 0.1);
             color: var(--text-dark);
             font-weight: 500;
+            text-align: left; /* Ensure each item is left aligned */
         }
 
         .product-list li::before {
@@ -201,7 +224,7 @@
             font-weight: 700;
         }
 
-        /* --- CONTACT --- */
+        /* Contact Section */
         .contact-section {
             background: var(--gradient-3);
             color: var(--white);
@@ -214,7 +237,6 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: center;
         }
 
         .contact-form {
@@ -248,34 +270,6 @@
             padding: 4rem 2rem;
             text-align: center;
         }
-
-        /* --- RESPONSIVE MEDIA QUERIES --- */
-
-        /* Tablets and Smaller Laptops */
-        @media (max-width: 1024px) {
-            .hero-container h1 { font-size: 2.8rem; }
-            .contact-container { gap: 2rem; }
-        }
-
-        /* Mobile Phones */
-        @media (max-width: 768px) {
-            .nav-container { flex-direction: column; padding: 1rem; }
-            .nav-links { margin-top: 1rem; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-            
-            .hero { margin-top: 130px; min-height: 70vh; }
-            .hero-container h1 { font-size: 2rem; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .btn-primary, .btn-secondary { width: 100%; max-width: 300px; }
-
-            .categories-section { padding: 4rem 1.5rem; }
-            .contact-container { grid-template-columns: 1fr; text-align: center; }
-            .contact-form { padding: 2rem 1.5rem; }
-        }
-
-        @media (max-width: 480px) {
-            .logo-img { height: 45px; }
-            .hero-container h1 { font-size: 1.8rem; }
-        }
     </style>
 </head>
 <body>
@@ -292,7 +286,7 @@
         </div>
     </nav>
 
-    <main>
+    <main id="main-content">
         <section class="hero" id="home">
             <div class="hero-container">
                 <h1>Empowering Healthcare Through Innovation</h1>
@@ -305,7 +299,7 @@
         </section>
 
         <section id="products" class="categories-section">
-            <div style="text-align: center; margin-bottom: 3rem;">
+            <div style="text-align: center; margin-bottom: 4rem;">
                 <h2 style="font-size: 2.5rem; color: var(--primary);">Complete Product Range</h2>
             </div>
 
@@ -366,11 +360,11 @@
         <section id="contact" class="contact-section">
             <div class="contact-container">
                 <div>
-                    <h2 style="font-size: 2.5rem;">Get In Touch</h2>
-                    <p style="color: white; margin-top: 1rem; text-align: left;">Contact us for dealership inquiries or product information.</p>
+                    <h2>Get In Touch</h2>
+                    <p style="color: white; margin-top: 1rem;">Contact us for dealership inquiries or product information.</p>
                 </div>
                 <div class="contact-form">
-                    <h3 style="margin-bottom: 1.5rem;">Send an Inquiry</h3>
+                    <h3>Send an Inquiry</h3>
                     <form action="https://formspree.io/f/xyvberpd" method="POST">
                         <div class="form-group">
                             <label>Full Name</label>
@@ -384,6 +378,7 @@
                             <label>Message</label>
                             <textarea name="message" rows="4" required></textarea>
                         </div>
+                        <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
                         <button type="submit" class="submit-btn">Submit Request</button>
                     </form>
                 </div>
