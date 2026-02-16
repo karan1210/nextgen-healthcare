@@ -5,19 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
+    <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
+    <!-- SEO Meta Tags -->
     <title>Nextgen Healthcare - Innovative Pharmaceutical Solutions | Dental, Surgical & Gynecological Products</title>
     <meta name="description" content="Nextgen Healthcare pioneers advanced pharmaceutical formulations in India since 2010. Offering innovative dental care, surgical, gynecological, and urology products with 40+ portfolio across multiple therapeutic segments.">
     <meta name="keywords" content="pharmaceutical company India, dental care products, surgical care, gynecological products, urology solutions, APLY Gel, AUGMEXIN, S-OFF oral rinse, MESACLIN Forte, healthcare innovation, Nextgen Healthcare">
     <meta name="author" content="Nextgen Healthcare">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
     
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:title" content="Nextgen Healthcare - Innovative Pharmaceutical Solutions">
+    <meta property="og:description" content="Pioneering pharmaceutical innovation in India since 2010. Advanced formulations across dental, surgical, gynecological, and urology segments.">
+    <meta property="og:image" content="https://yourdomain.com/logo.png">
+    <meta property="og:site_name" content="Nextgen Healthcare">
+    <meta property="og:locale" content="en_IN">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://yourdomain.com/">
+    <meta name="twitter:title" content="Nextgen Healthcare - Innovative Pharmaceutical Solutions">
+    <meta name="twitter:description" content="Pioneering pharmaceutical innovation in India since 2010. Advanced formulations across dental, surgical, gynecological, and urology segments.">
+    <meta name="twitter:image" content="https://yourdomain.com/logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <meta name="msapplication-TileColor" content="#0B3D3C">
+    <meta name="theme-color" content="#0B3D3C">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Nextgen Healthcare",
+        "description": "Pharmaceutical company pioneering innovative formulations in dental, surgical, gynecological, and urology segments",
+        "url": "https://yourdomain.com",
+        "logo": "https://yourdomain.com/logo.png",
+        "foundingDate": "2010",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "IN"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "sales@nextgenhealthcare.in",
+            "contactType": "Sales"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/company/nextgenhealthcare/",
+            "https://www.indiamart.com/nextgen-healthcare/"
+        ]
+    }
+    </script>
     <style>
         :root {
             --primary: #0B3D3C;
@@ -74,6 +139,11 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-md);
         }
 
         .nav-container {
@@ -85,9 +155,20 @@
             align-items: center;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
         .logo-img {
             height: 60px;
             width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -102,6 +183,26 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .cta-button {
@@ -109,7 +210,15 @@
             color: var(--white) !important;
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
+            text-decoration: none;
             font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
         /* Hero Section */
@@ -119,27 +228,81 @@
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, rgba(11, 61, 60, 0.03) 0%, rgba(45, 149, 150, 0.03) 100%);
-            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(45, 149, 150, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-50px, 50px) rotate(180deg); }
         }
 
         .hero-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 4rem 2rem;
-            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-content h1 {
             font-size: 3.5rem;
             color: var(--primary);
             margin-bottom: 1.5rem;
+            animation: slideInLeft 1s ease-out;
+            max-width: 900px;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-content .tagline {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        .hero-content p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            animation: slideInLeft 1s ease-out 0.4s both;
+            max-width: 800px;
+            text-align: justify;
         }
 
         .hero-buttons {
             display: flex;
             gap: 1.5rem;
+            animation: slideInLeft 1s ease-out 0.6s both;
             justify-content: center;
-            margin-top: 2rem;
         }
 
         .btn-primary {
@@ -149,6 +312,16 @@
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
         }
 
         .btn-secondary {
@@ -157,15 +330,462 @@
             padding: 1rem 2.5rem;
             border-radius: 12px;
             text-decoration: none;
-            border: 2px solid var(--primary);
             font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
         }
 
-        /* Product Categories (UPDATED ALIGNMENT) */
-        .categories-section {
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .hero-visual {
+            animation: slideInRight 1s ease-out 0.4s both;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--accent);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Section Styles */
+        section {
             padding: 6rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Innovative Solutions Section */
+        .innovative-section {
+            background: linear-gradient(135deg, rgba(11, 61, 60, 0.03) 0%, rgba(45, 149, 150, 0.03) 100%);
+            padding: 6rem 2rem;
+        }
+
+        .innovations-intro {
+            text-align: center;
+            max-width: 950px;
+            margin: 0 auto 4rem;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            border-top: 6px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .innovations-intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--gradient-2);
+        }
+
+        .innovations-intro h2 {
+            font-size: 2.75rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .innovations-intro .highlight {
+            font-size: 1.35rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .pioneer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .pioneer-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pioneer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-2);
+        }
+
+        .pioneer-card::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(45, 149, 150, 0.03) 0%, rgba(11, 61, 60, 0.03) 100%);
+            transition: top 0.4s ease;
+            z-index: 0;
+        }
+
+        .pioneer-card:hover::after {
+            top: 0;
+        }
+
+        .pioneer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .pioneer-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge-innovative {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--gradient-2);
+            color: var(--white);
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(45, 149, 150, 0.25);
+        }
+
+        .badge-innovative::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--gold);
+        }
+
+        .pioneer-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .composition {
+            background: rgba(45, 149, 150, 0.05);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        .composition-label {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .composition-text {
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .product-description {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .product-applications {
+            background: rgba(11, 61, 60, 0.04);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .product-applications strong {
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(11, 61, 60, 0.05) 0%, rgba(45, 149, 150, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 5px solid var(--accent);
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            text-align: justify;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .value-item:hover {
+            transform: translateX(10px);
+            border-color: var(--accent);
+        }
+
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .value-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .value-item span {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        /* Infrastructure Section */
+        .infrastructure-section {
+            background: linear-gradient(135deg, rgba(11, 61, 60, 0.03) 0%, rgba(45, 149, 150, 0.03) 100%);
+        }
+
+        .infra-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .infra-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease;
+            border-top: 5px solid var(--accent);
+        }
+
+        .infra-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .infra-card h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .infra-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .infra-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        .infra-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .infra-features {
+            list-style: none;
+        }
+
+        .infra-features li {
+            padding: 0.75rem 0;
+            color: var(--text-dark);
+            border-bottom: 1px solid rgba(11, 61, 60, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .infra-features li:hover {
+            padding-left: 15px;
+            color: var(--primary);
+        }
+
+        .infra-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 1rem;
+            font-size: 1.25rem;
+        }
+
+        /* Product Categories */
+        .categories-section {
+            background: var(--white);
         }
 
         .categories-grid {
@@ -180,41 +800,62 @@
             border-radius: 16px;
             padding: 2rem;
             box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            cursor: pointer;
             border: 2px solid transparent;
-            text-align: left; /* Changed to Left Align */
         }
 
         .category-card:hover {
-            border-color: var(--accent);
             transform: translateY(-5px);
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: white;
         }
 
         .category-card h3 {
             color: var(--primary);
             font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            text-align: left; /* Explicitly Left Align */
+            margin-bottom: 1rem;
         }
 
         .category-card p {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-align: left; /* Changed from Justify to Left */
+            color: var(--text-dark);
+            font-weight: 500;
+            text-align: justify;
         }
 
         .product-list {
             list-style: none;
-            text-align: left; /* Ensure list container is left aligned */
+            margin-top: 1rem;
         }
 
         .product-list li {
-            padding: 0.6rem 0;
+            padding: 0.75rem 0;
             border-bottom: 1px solid rgba(11, 61, 60, 0.1);
             color: var(--text-dark);
+            transition: color 0.3s ease;
             font-weight: 500;
-            text-align: left; /* Ensure each item is left aligned */
+        }
+
+        .product-list li:hover {
+            color: var(--primary);
+            padding-left: 10px;
         }
 
         .product-list li::before {
@@ -228,168 +869,1025 @@
         .contact-section {
             background: var(--gradient-3);
             color: var(--white);
-            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .contact-section .section-subtitle {
+            color: var(--gold);
+        }
+
+        .contact-section .section-title {
+            color: var(--white);
+        }
+
+        .contact-section .section-description {
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .contact-container {
-            max-width: 1400px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
+            margin-top: 3rem;
+            align-items: start;
+            text-align: left;
         }
 
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info h3 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(45, 149, 150, 0.3);
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .contact-details h4 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-size: 1.125rem;
+        }
+
+        .contact-details p {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Contact Form */
         .contact-form {
             background: var(--white);
             padding: 3rem;
             border-radius: 20px;
             box-shadow: var(--shadow-lg);
-            color: var(--text-dark);
         }
 
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
-        .form-group input, .form-group textarea {
-            width: 100%; padding: 0.875rem; border: 2px solid #eee; border-radius: 10px;
+        .contact-form h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid rgba(11, 61, 60, 0.1);
+            border-radius: 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(45, 149, 150, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
         }
 
         .submit-btn {
             width: 100%;
             background: var(--gradient-1);
             color: var(--white);
-            padding: 1rem;
+            padding: 1rem 2rem;
             border: none;
             border-radius: 12px;
+            font-size: 1.125rem;
             font-weight: 600;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
         }
 
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Footer */
         footer {
             background: var(--primary-dark);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
+            color: var(--light);
+            padding: 4rem 2rem 2rem;
         }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-about h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--accent-light) !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content,
+            .contact-container,
+            .infra-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pioneer-grid,
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-delay-1 { animation-delay: 0.1s; }
+        .fade-in-delay-2 { animation-delay: 0.2s; }
+        .fade-in-delay-3 { animation-delay: 0.3s; }
+        .fade-in-delay-4 { animation-delay: 0.4s; }
+        .fade-in-delay-5 { animation-delay: 0.5s; }
     </style>
 </head>
 <body>
-
-    <nav>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main" style="position: absolute; left: -9999px; z-index: 999;">Skip to main content</a>
+    
+    <!-- Noscript fallback -->
+    <noscript>
+        <div style="position: fixed; top: 0; left: 0; right: 0; background: #E63946; color: white; padding: 1rem; text-align: center; z-index: 9999;">
+            For full functionality of this site, it is necessary to enable JavaScript. Here are <a href="https://www.enable-javascript.com/" style="color: white; text-decoration: underline;" target="_blank" rel="noopener">instructions on how to enable JavaScript in your web browser</a>.
+        </div>
+    </noscript>
+    
+    <!-- Navigation -->
+    <nav id="navbar">
         <div class="nav-container">
-            <img src="logo.png" alt="Nextgen Healthcare" class="logo-img">
+            <div class="logo-container">
+                <img src="logo.png" alt="Nextgen Healthcare Logo" class="logo-img">
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#innovations">Solutions</a></li>
+                <li><a href="#innovations">Innovative Solutions</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#contact" class="cta-button">Contact Us</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Main Content -->
     <main id="main-content">
-        <section class="hero" id="home">
-            <div class="hero-container">
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
                 <h1>Empowering Healthcare Through Innovation</h1>
-                <p>Nextgen Healthcare pioneers advanced pharmaceutical formulations designed to enhance patient outcomes since 2010.</p>
+                <p class="tagline">Delivering Novel Pharmaceutical Solutions Since 2010</p>
+                <p>Nextgen Healthcare pioneers advanced pharmaceutical formulations designed to enhance patient outcomes. Our commitment to research, quality, and innovation drives us to develop groundbreaking solutions across dental, gynecological, and surgical segments.</p>
                 <div class="hero-buttons">
-                    <a href="#products" class="btn-primary">View Products</a>
-                    <a href="#contact" class="btn-secondary">Contact Sales</a>
+                    <a href="#innovations" class="btn-primary">Explore Our Solutions</a>
+                    <a href="#contact" class="btn-secondary">Partner With Us</a>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card fade-in fade-in-delay-1">
+                        <span class="stat-number">40+</span>
+                        <span class="stat-label">Products Portfolio</span>
+                    </div>
+                    <div class="stat-card fade-in fade-in-delay-2">
+                        <span class="stat-number">14</span>
+                        <span class="stat-label">Years of Excellence</span>
+                    </div>
+                    <div class="stat-card fade-in fade-in-delay-3">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Dedicated Professionals</span>
+                    </div>
                 </div>
             </div>
-        </section>
+            <div class="hero-visual">
+                <!-- Decorative element -->
+            </div>
+        </div>
+    </section>
 
-        <section id="products" class="categories-section">
-            <div style="text-align: center; margin-bottom: 4rem;">
-                <h2 style="font-size: 2.5rem; color: var(--primary);">Complete Product Range</h2>
+    <!-- Innovative Solutions Section -->
+    <section id="innovations" class="innovative-section">
+        <div class="innovations-intro">
+            <h2>Innovative Solutions Portfolio</h2>
+            <p class="highlight">Helping Your Patients with Our Advanced Therapeutic Formulations</p>
+            <p class="section-description">At Nextgen Healthcare, we develop novel pharmaceutical formulations designed to address unmet clinical needs. Our proprietary combinations deliver enhanced efficacy, improved patient compliance, and superior therapeutic outcomes across multiple therapeutic areas.</p>
+        </div>
+
+        <div class="pioneer-grid">
+            <!-- Solution 1: APLY Gel -->
+            <div class="pioneer-card fade-in">
+                <span class="badge-innovative">Novel Formulation</span>
+                <h3>APLY Gel - Advanced Dental Care</h3>
+                <div class="composition">
+                    <div class="composition-label">Proprietary Composition</div>
+                    <div class="composition-text">Ornidazole 1% + Chlorhexidine</div>
+                </div>
+                <p class="product-description">Our advanced antiseptic and antibacterial gel delivers superior efficacy in managing oral infections. This innovative formulation combines antimicrobial agents to provide comprehensive treatment for various dental conditions.</p>
+                <div class="product-applications">
+                    <strong>Clinical Applications:</strong> Gingivitis Management, Periodontitis Treatment, Oral Ulcer Therapy, Post-Surgical Dental Care
+                </div>
             </div>
 
-            <div class="categories-grid">
-                <div class="category-card">
-                    <h3>Dental Care Solutions</h3>
-                    <p>Advanced oral health therapeutics</p>
-                    <ul class="product-list">
-                        <li>APLY Gel (Ornidazole + Chlorhexidine)</li>
-                        <li>AUGMEXIN-M Forte Gel</li>
-                        <li>S-OFF NM Toothpaste (NovaMin)</li>
-                        <li>S-OFF Oral Rinse</li>
-                        <li>AUGDINE M/W System</li>
-                        <li>Benzydamine HCl 0.15% Rinse</li>
-                        <li>IGP Gum Paint</li>
-                        <li>ORO FAST Mouthwash</li>
-                    </ul>
+            <!-- Solution 2: AUGMEXIN-M Forte -->
+            <div class="pioneer-card fade-in fade-in-delay-1">
+                <span class="badge-innovative">Novel Formulation</span>
+                <h3>AUGMEXIN-M Forte Gel</h3>
+                <div class="composition">
+                    <div class="composition-label">Proprietary Composition</div>
+                    <div class="composition-text">Chlorhexidine Gluconate + Metronidazole + Lignocaine Hydrochloride</div>
                 </div>
-
-                <div class="category-card">
-                    <h3>Gynecology</h3>
-                    <p>Women's health innovations</p>
-                    <ul class="product-list">
-                        <li>MESACLIN Forte (Triple Action)</li>
-                        <li>AUGMEXIN-P Ointment</li>
-                        <li>Mega Wash (Lactic Acid)</li>
-                        <li>Cioca-D3 (Coral Calcium)</li>
-                        <li>Calcium + Vitamin D3</li>
-                    </ul>
-                </div>
-
-                <div class="category-card">
-                    <h3>Surgical Care</h3>
-                    <p>Advanced wound management</p>
-                    <ul class="product-list">
-                        <li>AUGMEXIN-P Ointment</li>
-                        <li>HY-KUL Cream (Multi-Action)</li>
-                        <li>HY-KUL Tablets</li>
-                        <li>HY-KUL Suspension</li>
-                        <li>HYKUL-LS (Lactulose)</li>
-                        <li>Sultamicillin Tosylate 375mg</li>
-                    </ul>
-                </div>
-
-                <div class="category-card">
-                    <h3>Urology</h3>
-                    <p>Urinary health solutions</p>
-                    <ul class="product-list">
-                        <li>URICURE (Ayurvedic Formula)</li>
-                        <li>URICURE-M (K-Citrate + Mg)</li>
-                        <li>Potassium Citrate Formulations</li>
-                        <li>Enhanced Vitamin B6 Products</li>
-                    </ul>
+                <p class="product-description">A breakthrough triple-action dental gel combining powerful antiseptic, antimicrobial, and analgesic properties. This innovative formulation provides comprehensive oral care through synergistic therapeutic action.</p>
+                <div class="product-applications">
+                    <strong>Therapeutic Benefits:</strong> Rapid Pain Relief, Enhanced Infection Control, Accelerated Tissue Healing
                 </div>
             </div>
-        </section>
 
-        <section id="contact" class="contact-section">
-            <div class="contact-container">
-                <div>
-                    <h2>Get In Touch</h2>
-                    <p style="color: white; margin-top: 1rem;">Contact us for dealership inquiries or product information.</p>
+            <!-- Solution 3: S-OFF Oral Rinse -->
+            <div class="pioneer-card fade-in fade-in-delay-2">
+                <span class="badge-innovative">Novel Formulation</span>
+                <h3>S-OFF Therapeutic Oral Rinse</h3>
+                <div class="composition">
+                    <div class="composition-label">Proprietary Composition</div>
+                    <div class="composition-text">Potassium Nitrate 3% + Sodium Fluoride 0.2% + Triclosan 0.3%</div>
                 </div>
-                <div class="contact-form">
-                    <h3>Send an Inquiry</h3>
-                    <form action="https://formspree.io/f/xyvberpd" method="POST">
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="name" required>
+                <p class="product-description">An advanced therapeutic rinse specifically formulated for dental hypersensitivity management. Our proprietary blend provides immediate relief while offering long-term protection and enamel strengthening.</p>
+                <div class="product-applications">
+                    <strong>Key Features:</strong> Desensitizing Action, Enamel Fortification, Antibacterial Protection, Long-lasting Relief
+                </div>
+            </div>
+
+            <!-- Solution 4: MESACLIN Forte -->
+            <div class="pioneer-card fade-in fade-in-delay-3">
+                <span class="badge-innovative">Novel Formulation</span>
+                <h3>MESACLIN Forte - Gynecological Innovation</h3>
+                <div class="composition">
+                    <div class="composition-label">Proprietary Composition</div>
+                    <div class="composition-text">Clindamycin 100mg + Clotrimazole 200mg + Tinidazole 100mg</div>
+                </div>
+                <p class="product-description">A sophisticated triple-action vaginal capsule delivering comprehensive treatment for complex gynecological infections. This innovative formulation provides broad-spectrum coverage in a single, convenient dosage form.</p>
+                <div class="product-applications">
+                    <strong>Therapeutic Spectrum:</strong> Antibacterial, Antifungal, and Antiprotozoal Activity for Comprehensive Infection Management
+                </div>
+            </div>
+
+            <!-- Solution 5: AUGMEXIN-P -->
+            <div class="pioneer-card fade-in fade-in-delay-4">
+                <span class="badge-innovative">Novel Formulation</span>
+                <h3>AUGMEXIN-P Surgical Ointment</h3>
+                <div class="composition">
+                    <div class="composition-label">Proprietary Composition</div>
+                    <div class="composition-text">Ornidazole 1% + Povidone Iodine 5%</div>
+                </div>
+                <p class="product-description">An advanced surgical wound care ointment combining broad-spectrum antimicrobial action with superior healing properties. Our dual-action formulation provides comprehensive post-operative care.</p>
+                <div class="product-applications">
+                    <strong>Clinical Applications:</strong> Post-Operative Wound Care, Infection Prevention, Enhanced Tissue Repair, Surgical Site Management
+                </div>
+            </div>
+
+            <!-- Solution 6: HY-KUL Cream -->
+            <div class="pioneer-card fade-in fade-in-delay-5">
+                <span class="badge-innovative">Novel Formulation</span>
+                <h3>HY-KUL Multi-Action Cream</h3>
+                <div class="composition">
+                    <div class="composition-label">Proprietary Composition</div>
+                    <div class="composition-text">Hydrocortisone + Lignocaine + Phenylephrine + Calamine</div>
+                </div>
+                <p class="product-description">An innovative four-component formulation for comprehensive anorectal care. This sophisticated blend combines anti-inflammatory, analgesic, vasoconstrictor, and soothing properties for optimal patient comfort and therapeutic efficacy.</p>
+                <div class="product-applications">
+                    <strong>Clinical Indications:</strong> Hemorrhoids, Anal Fissures, Pruritus Ani, Post-Surgical Anorectal Care
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories Section -->
+    <section id="products" class="categories-section">
+        <div class="section-header">
+            <div class="section-subtitle">Our Portfolio</div>
+            <h2 class="section-title">Complete Product Range</h2>
+            <p class="section-description">Comprehensive pharmaceutical solutions designed to meet diverse clinical needs across multiple therapeutic segments and patient populations.</p>
+        </div>
+
+        <div class="categories-grid">
+            <!-- Dental Products -->
+            <div class="category-card fade-in">
+                <div class="category-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M11.5 22c1.6 0 3.1-.8 4-2.1.9 1.3 2.4 2.1 4 2.1 2.8 0 5-2.2 5-5V8.5c0-3.6-2.9-6.5-6.5-6.5S12 4.9 12 8.5c0-3.6-2.9-6.5-6.5-6.5S-1 4.9-1 8.5V17c0 2.8 2.2 5 5 5 1.6 0 3.1-.8 4-2.1.9 1.3 2.4 2.1 4 2.1h-.5zm7.5-5c0 1.7-1.3 3-3 3s-3-1.3-3-3V8.5c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5V17zm-12 0V8.5C7 6 9 4 11.5 4S16 6 16 8.5V17c0 1.7-1.3 3-3 3s-3-1.3-3-3z"/>
+                    </svg>
+                </div>
+                <h3>Dental Care Solutions</h3>
+                <p>Advanced oral health therapeutics</p>
+                <ul class="product-list">
+                    <li>APLY Gel (Ornidazole + Chlorhexidine)</li>
+                    <li>AUGMEXIN-M Forte Gel</li>
+                    <li>S-OFF NM Toothpaste (NovaMin)</li>
+                    <li>S-OFF Oral Rinse</li>
+                    <li>AUGDINE M/W System</li>
+                    <li>Benzydamine HCl 0.15% Rinse</li>
+                    <li>IGP Gum Paint</li>
+                    <li>ORO FAST Mouthwash</li>
+                </ul>
+            </div>
+
+            <!-- Gynecological Products -->
+            <div class="category-card fade-in fade-in-delay-1">
+                <div class="category-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/>
+                    </svg>
+                </div>
+                <h3>Gynecology</h3>
+                <p>Women's health innovations</p>
+                <ul class="product-list">
+                    <li>MESACLIN Forte (Triple Action)</li>
+                    <li>AUGMEXIN-P Ointment</li>
+                    <li>Mega Wash (Lactic Acid)</li>
+                    <li>Cioca-D3 (Coral Calcium)</li>
+                    <li>Calcium + Vitamin D3</li>
+                </ul>
+            </div>
+
+            <!-- Surgical Products -->
+            <div class="category-card fade-in fade-in-delay-2">
+                <div class="category-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M9.17 16.83c.39.39 1.02.39 1.41 0l9.2-9.2c.39-.39.39-1.02 0-1.41l-2.83-2.83c-.39-.39-1.02-.39-1.41 0l-9.2 9.2c-.39.39-.39 1.02 0 1.41l2.83 2.83zM3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                    </svg>
+                </div>
+                <h3>Surgical Care</h3>
+                <p>Advanced wound management</p>
+                <ul class="product-list">
+                    <li>AUGMEXIN-P Ointment</li>
+                    <li>HY-KUL Cream (Multi-Action)</li>
+                    <li>HY-KUL Tablets</li>
+                    <li>HY-KUL Suspension</li>
+                    <li>HYKUL-LS (Lactulose)</li>
+                    <li>Sultamicillin Tosylate 375mg</li>
+                </ul>
+            </div>
+
+            <!-- Urology Products -->
+            <div class="category-card fade-in fade-in-delay-3">
+                <div class="category-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M4.22 11.29l7.07-7.07c.78-.78 2.05-.78 2.83 0l6.36 6.36c.78.78.78 2.05 0 2.83l-7.07 7.07c-.78.78-2.05.78-2.83 0L4.22 14.12c-.78-.78-.78-2.05 0-2.83zm8.49-5.66L7.05 11.29l4.24 4.24 5.66-5.66-4.24-4.24z"/>
+                    </svg>
+                </div>
+                <h3>Urology</h3>
+                <p>Urinary health solutions</p>
+                <ul class="product-list">
+                    <li>URICURE (Ayurvedic Formula)</li>
+                    <li>URICURE-M (K-Citrate + Mg)</li>
+                    <li>Potassium Citrate Formulations</li>
+                    <li>Enhanced Vitamin B6 Products</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-header">
+            <div class="section-subtitle">Established 2010</div>
+            <h2 class="section-title">About Nextgen Healthcare</h2>
+            <p class="section-description">Building a legacy of pharmaceutical excellence through research-driven innovation, unwavering quality standards, and patient-centric healthcare solutions.</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Our Journey of Excellence</h3>
+                <p>Founded in 2010, Nextgen Healthcare has established itself as a distinguished pharmaceutical company with a remarkable growth trajectory. Our journey began with a vision to create groundbreaking healthcare solutions, and today we stand proud with a comprehensive portfolio of over 40 innovative products across various therapeutic segments.</p>
+                
+                <p>Growth in all its facets has been our distinguishing factor. The continuing expansion of our business drives our success, with strategic decisions creating better outcomes for our company, partners, and most importantly, the patients we serve. At Nextgen, we strive to create a prosperous organization characterized by continuous innovation and excellence in pharmaceutical development.</p>
+
+                <div class="highlight-box">
+                    <h4>Our Mission</h4>
+                    <p>To be the most admired pharmaceutical company, positioning ourselves on a quality platform while expanding our presence across multiple therapeutic areas through innovative formulations that address unmet medical needs.</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
                         </div>
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" name="_replyto" required>
+                        <span>Excellence</span>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                            </svg>
                         </div>
-                        <div class="form-group">
-                            <label>Message</label>
-                            <textarea name="message" rows="4" required></textarea>
+                        <span>Integrity</span>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
+                            </svg>
                         </div>
-                        <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
-                        <button type="submit" class="submit-btn">Submit Request</button>
-                    </form>
+                        <span>Innovation</span>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 12.75c1.63 0 3.07.39 4.24.9 1.08.48 1.76 1.56 1.76 2.73V18H6v-1.61c0-1.18.68-2.26 1.76-2.73 1.17-.52 2.61-.91 4.24-.91zM4 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm1.13 1.1c-.37-.06-.74-.1-1.13-.1-.99 0-1.93.21-2.78.58C.48 14.9 0 15.62 0 16.43V18h4.5v-1.61c0-.83.23-1.61.63-2.29zM20 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 3.43c0-.81-.48-1.53-1.22-1.85-.85-.37-1.79-.58-2.78-.58-.39 0-.76.04-1.13.1.4.68.63 1.46.63 2.29V18H24v-1.57zM12 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/>
+                            </svg>
+                        </div>
+                        <span>Teamwork</span>
+                    </div>
+                </div>
+
+                <p style="margin-top: 2rem;">Innovation remains the cornerstone of our operations, leading to significant breakthroughs that add value to existing business and create new opportunities. Our business priorities align seamlessly with market demand through consistent collaboration and engagement with our valued customers and healthcare professionals.</p>
+            </div>
+
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800" alt="Pharmaceutical Research Laboratory">
+            </div>
+        </div>
+    </section>
+
+    <!-- Infrastructure & Team Section -->
+    <section class="infrastructure-section">
+        <div class="section-header">
+            <div class="section-subtitle">Excellence in Operations</div>
+            <h2 class="section-title">Infrastructure & Team</h2>
+            <p class="section-description">World-class facilities and a dedicated workforce driving pharmaceutical innovation and maintaining uncompromising quality standards.</p>
+        </div>
+
+        <div class="infra-grid">
+            <div class="infra-card fade-in">
+                <h3>
+                    <div class="infra-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M22 10v10H2V10l7-3v2l5-2v3h8zM6 20h2v-4H6v4zm4 0h2v-4h-2v4zm4 0h2v-4h-2v4zm4 0h2v-4h-2v4z"/>
+                        </svg>
+                    </div>
+                    State-of-the-Art Infrastructure
+                </h3>
+                <p>Our sophisticated manufacturing infrastructure encompasses advanced processing equipment and dedicated production units designed to meet and exceed international pharmaceutical standards. Every facility is strategically designed to ensure optimal efficiency and uncompromising product quality.</p>
+                <ul class="infra-features">
+                    <li>Advanced processing technology with regular upgrades</li>
+                    <li>Segregated production units for efficient operations</li>
+                    <li>Comprehensive quality control laboratories</li>
+                    <li>High-volume production capabilities</li>
+                    <li>Continuous infrastructure modernization</li>
+                    <li>Compliance with international GMP standards</li>
+                </ul>
+            </div>
+
+            <div class="infra-card fade-in fade-in-delay-1">
+                <h3>
+                    <div class="infra-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        </svg>
+                    </div>
+                    Our Professional Team
+                </h3>
+                <p>With approximately 50 dedicated professionals, our workforce represents the foundation of our success. Each team member is carefully selected based on expertise and commitment, working collaboratively to deliver exceptional pharmaceutical products and services.</p>
+                <ul class="infra-features">
+                    <li>Expert procurement specialists ensuring quality materials</li>
+                    <li>Skilled production team with pharmaceutical expertise</li>
+                    <li>Dedicated R&D professionals driving innovation</li>
+                    <li>Experienced quality assurance specialists</li>
+                    <li>Strategic marketing and business development experts</li>
+                    <li>Efficient handling of complex requirements</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <div class="section-subtitle">Get in Touch</div>
+            <h2 class="section-title">Contact Nextgen Healthcare</h2>
+            <p class="section-description">Partner with us to bring innovative pharmaceutical solutions to your patients. We're here to support your practice with quality products and exceptional service.</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Head Office</h4>
+                        <p>Nextgen Healthcare<br>India</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p>info@nextgenhealthcare.in<br>sales@nextgenhealthcare.in</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <p>+91 XXX XXX XXXX<br>+91 XXX XXX XXXX</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Business Hours</h4>
+                        <p>Monday - Saturday: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
+                    </div>
                 </div>
             </div>
-        </section>
+
+            <div class="contact-form">
+                <h3>Send us a Message</h3>
+                <form id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name" pattern="[A-Za-z\s]{2,50}" maxlength="50" autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="100" autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Contact Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX" pattern="[0-9+\s\-]{10,15}" maxlength="15" autocomplete="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reason">Reason for Contact *</label>
+                        <select id="reason" name="reason" required autocomplete="off">
+                            <option value="">Select a reason</option>
+                            <option value="product-inquiry">Product Inquiry</option>
+                            <option value="distribution">Distribution Partnership</option>
+                            <option value="bulk-order">Bulk Order</option>
+                            <option value="technical-support">Technical Support</option>
+                            <option value="career">Career Opportunities</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us more about your inquiry..." maxlength="1000" autocomplete="off"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
     </main>
+    <!-- End Main Content -->
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Nextgen Healthcare. All Rights Reserved.</p>
-        <p>Email: sales@nextgenhealthcare.in</p>
+        <div class="footer-content">
+            <div class="footer-about">
+                <img src="logo.png" alt="Nextgen Healthcare" style="height: 60px; margin-bottom: 1rem;">
+                <p>Established in 2010, Nextgen Healthcare pioneers pharmaceutical innovation in India. We develop advanced formulations that address critical healthcare needs across multiple therapeutic segments with unwavering commitment to quality and patient care.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/nextgenhealthcare/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:sales@nextgenhealthcare.in" aria-label="Email">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.indiamart.com/nextgen-healthcare/" target="_blank" rel="noopener noreferrer" aria-label="IndiaMART">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#innovations">Innovative Solutions</a></li>
+                    <li><a href="#products">Dental Care</a></li>
+                    <li><a href="#products">Gynecology</a></li>
+                    <li><a href="#products">Surgical Care</a></li>
+                    <li><a href="#products">Urology</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#about">Our Vision</a></li>
+                    <li><a href="#about">Infrastructure</a></li>
+                    <li><a href="#about">Our Team</a></li>
+                    <li><a href="#contact">Careers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#contact">Distribution Inquiry</a></li>
+                    <li><a href="#contact">Product Support</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Nextgen Healthcare. All rights reserved. | Empowering Healthcare Through Innovation Since 2010</p>
+            <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <a href="https://www.indiamart.com/nextgen-healthcare/" target="_blank" rel="noopener noreferrer" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.3s ease; display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="font-size: 1.25rem;">🏪</span>
+                    <span>Visit us on IndiaMART</span>
+                </a>
+                <a href="https://www.linkedin.com/company/nextgenhealthcare/" target="_blank" rel="noopener noreferrer" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.3s ease; display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="font-size: 1.25rem;">💼</span>
+                    <span>Connect on LinkedIn</span>
+                </a>
+            </div>
+        </div>
     </footer>
 
+    <script>
+        'use strict';
+        
+        // Sanitize input to prevent XSS
+        function sanitizeInput(input) {
+            const div = document.createElement('div');
+            div.textContent = input;
+            return div.innerHTML;
+        }
+        
+        // Email validation
+        function isValidEmail(email) {
+            const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+            return emailRegex.test(email);
+        }
+        
+        // Phone validation
+        function isValidPhone(phone) {
+            const phoneRegex = /^[0-9+\s\-]{10,15}$/;
+            return phoneRegex.test(phone);
+        }
+        
+        // Navbar scroll effect with throttling
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    const navbar = document.getElementById('navbar');
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Smooth scrolling with security check
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                
+                // Validate the href to prevent XSS
+                if (targetId && targetId.startsWith('#')) {
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for animations with performance optimization
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    // Unobserve after animation to improve performance
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced form submission with validation and security
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = sanitizeInput(document.getElementById('name').value.trim());
+            const email = sanitizeInput(document.getElementById('email').value.trim());
+            const phone = sanitizeInput(document.getElementById('phone').value.trim());
+            const reason = sanitizeInput(document.getElementById('reason').value);
+            const message = sanitizeInput(document.getElementById('message').value.trim());
+            
+            // Validate inputs
+            let isValid = true;
+            let errorMessage = '';
+            
+            // Name validation
+            if (name.length < 2 || name.length > 50) {
+                isValid = false;
+                errorMessage += 'Please enter a valid name (2-50 characters).\\n';
+            }
+            
+            // Email validation
+            if (!isValidEmail(email)) {
+                isValid = false;
+                errorMessage += 'Please enter a valid email address.\\n';
+            }
+            
+            // Phone validation
+            if (!isValidPhone(phone)) {
+                isValid = false;
+                errorMessage += 'Please enter a valid phone number.\\n';
+            }
+            
+            // Reason validation
+            if (!reason) {
+                isValid = false;
+                errorMessage += 'Please select a reason for contact.\\n';
+            }
+            
+            // If validation fails
+            if (!isValid) {
+                alert('Please correct the following errors:\\n\\n' + errorMessage);
+                return;
+            }
+            
+            // If validation passes
+            alert('Thank you for contacting Nextgen Healthcare!\\n\\nYour message has been received and we will get back to you soon.\\n\\nName: ' + name + '\\nEmail: ' + email);
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Prevent right-click on images (optional - uncomment if needed)
+        // document.querySelectorAll('img').forEach(img => {
+        //     img.addEventListener('contextmenu', e => e.preventDefault());
+        // });
+        
+        // Add loading attribute to images for lazy loading
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('img').forEach(img => {
+                if (!img.hasAttribute('loading')) {
+                    img.setAttribute('loading', 'lazy');
+                }
+            });
+        });
+        
+        // Performance monitoring (optional)
+        if ('PerformanceObserver' in window) {
+            const perfObserver = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    // You can log performance metrics here
+                    // console.log(entry);
+                }
+            });
+            perfObserver.observe({ entryTypes: ['paint', 'largest-contentful-paint'] });
+        }
+    </script>
 </body>
 </html>
